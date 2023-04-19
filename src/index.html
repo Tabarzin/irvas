@@ -111,8 +111,9 @@
             <form class="form main_form" action="#">
               <h2>Запишитесь сегодня на <br><span>бесплатный замер</span></h2>
               <input class="form-control form_input" name="user_name" required type="text" placeholder="Введите ваше имя">
-              <input class="form-control form_input" name="user_phone" required type="text" placeholder="Введите телефон">
+              <input class="form-control form_input" id="phone" name="user_phone" type="tel" pattern="[0-9]{5,12}" required placeholder="Введите телефон">
               <button class="text-uppercase btn-block button" name="submit" type="submit">Вызвать замерщика!</button>
+              <p id="message"></p>
               <p class="form_notice">Ваши данные конфиденциальны</p>
             </form>
           </div>
@@ -826,7 +827,7 @@
                     <form class="form" action="#">
                       <h2>Запишитесь сегодня на <br><span>бесплатный замер</span></h2>
                       <input class="form-control form_input" name="user_name" required type="text" placeholder="Введите ваше имя">
-                      <input class="form-control form_input" name="user_phone" required type="text" placeholder="Введите телефон">
+                      <input class="form-control form_input" type="tel" name="phone" required  placeholder="Введите телефон">
                       <button class="text-uppercase btn-block button" name="submit" type="submit">Вызвать замерщика!</button>
                       <p class="form_notice">Ваши данные конфиденциальны</p>
                     </form>
@@ -916,7 +917,7 @@
         </div>
     </div>
 
-    <script src="./js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Add slick.js -->
     <script src="assets/slick/slick.min.js"></script>
