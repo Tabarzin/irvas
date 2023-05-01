@@ -1,2 +1,2 @@
 import "./modals.js";
-import "./form-validation.js";
+import "./form-submit.js";
