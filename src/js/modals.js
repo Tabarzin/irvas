@@ -31,10 +31,30 @@ closeCallOrAsk.onclick = function () {
   callOrAskModal.style.display = "none";
 };
 
+/* Калькулятор */
+
+const calcBtns = document.querySelectorAll(".glazing_price_btn");
+const calcModal = document.querySelector(".popup_calc");
+const closeCalcModals = document.querySelectorAll(".popup_calc_close");
+
+calcBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    calcModal.style.display = "block";
+  });
+});
+
+closeCalcModals.forEach((close) => {
+  close.addEventListener("click", () => {
+    calcModal.style.display = "none";
+  });
+});
+
 window.onclick = function (event) {
   if (event.target == measurerModal) {
     measurerModal.style.display = "none";
   } else if (event.target == callOrAskModal) {
     callOrAskModal.style.display = "none";
+  } else if (event.target == calcModal) {
+    calcModal.style.display = "none";
   }
 };
