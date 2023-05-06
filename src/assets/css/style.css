@@ -969,6 +969,7 @@ textarea:focus {
 
 .popup_calc_content .big_img img {
   display: none;
+  margin: 0 auto;
   margin-bottom: 3rem;
   width: 30rem;
 }
@@ -978,7 +979,7 @@ textarea:focus {
 }
 
 .do_image_more img {
-  width: 110px;
+  width: 95px;
   height: 70px;
   cursor: pointer;
 }
