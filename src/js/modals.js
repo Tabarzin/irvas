@@ -65,6 +65,59 @@ icons.forEach((icon, index) => {
   });
 });
 
+/* Калькулятор. При нажатии на кнопку "далее" */
+
+const button = document.querySelector(".popup_calc_button");
+const modalToClose = document.querySelector(".popup_calc");
+const calcProfile = document.querySelector(".popup_calc_profile");
+// Add a click event listener to the button
+button.addEventListener("click", () => {
+  // Get the current modal window element
+  modalToClose.style.display = "none";
+
+  // Show the next modal window
+  calcProfile.style.display = "block";
+});
+
+const calcProfileClose = document.querySelector(".popup_calc_profile_close");
+calcProfileClose.addEventListener("click", () => {
+  calcProfile.style.display = "none";
+});
+
+/* Калькулятор. Запрет за выбор двух чекбоксов */
+
+const checkboxes = document.querySelectorAll('input[name="checkbox-test"]');
+for (let i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].addEventListener("change", () => {
+    if (checkboxes[i].checked) {
+      for (let j = 0; j < checkboxes.length; j++) {
+        if (j !== i) {
+          checkboxes[j].checked = false;
+        }
+      }
+    }
+  });
+}
+
+/* Калькулятор. При нажатии на вторую кнопку "далее" */
+
+const secondButton = document.querySelector(".popup_calc_profile_button");
+const secondModalToClose = document.querySelector(".popup_calc_profile");
+const calcEnd = document.querySelector(".popup_calc_end ");
+// Add a click event listener to the button
+secondButton.addEventListener("click", () => {
+  // Get the current modal window element
+  secondModalToClose.style.display = "none";
+
+  // Show the next modal window
+  calcEnd.style.display = "block";
+});
+
+const calcEndClose = document.querySelector(".popup_calc_end_close");
+calcEndClose.addEventListener("click", () => {
+  calcEnd.style.display = "none";
+});
+
 window.onclick = function (event) {
   if (event.target == measurerModal) {
     measurerModal.style.display = "none";
@@ -72,5 +125,9 @@ window.onclick = function (event) {
     callOrAskModal.style.display = "none";
   } else if (event.target == calcModal) {
     calcModal.style.display = "none";
+  } else if (event.target == calcProfile) {
+    calcProfile.style.display = "none";
+  } else if (event.target == calcEnd) {
+    calcEnd.style.display = "none";
   }
 };
