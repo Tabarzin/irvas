@@ -1,3 +1,5 @@
+/* Первые табы */
+
 const tabLinks = document.querySelectorAll(
   ".tree_link, .aluminum_link, .plastic_link, .french_link, .rise_link"
 );
@@ -25,5 +27,34 @@ tabLinks.forEach((link) => {
         tabContent.style.display = "none";
       }
     });
+  });
+});
+
+/* Вторые табы. Decoration */
+
+const decorationItems = document.querySelectorAll(".decoration_item");
+const decorationContents = document.querySelectorAll(
+  ".internal, .external, .rising, .roof"
+);
+
+// Loop through all decoration items
+decorationItems.forEach((item, index) => {
+  // Add click event listener to each item
+  item.addEventListener("click", () => {
+    // Remove "after_click" class from all items
+    decorationItems.forEach((item) => {
+      item.querySelector(".no_click").classList.remove("after_click");
+    });
+
+    // Add "after_click" class to clicked item
+    item.querySelector(".no_click").classList.add("after_click");
+
+    // Hide all decoration contents
+    decorationContents.forEach((content) => {
+      content.style.display = "none";
+    });
+
+    // Show the corresponding decoration content
+    decorationContents[index].style.display = "block";
   });
 });
