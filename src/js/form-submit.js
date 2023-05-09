@@ -7,9 +7,29 @@ document.addEventListener("submit", function (event) {
     const name = event.target.querySelector("input[name='user_name']").value;
     const phone = event.target.querySelector("input[name='user_phone']").value;
 
+    const baChoice = document.querySelector(".balcon_icons .do_image_more img");
+
+    const widthInput = document.getElementById("width").value;
+    const heightInput = document.getElementById("height").value;
+
+    const viewTypeSelect = document.getElementById("view_type").value;
+
+    const coldCheckbox = document.getElementById("coldCheck");
+    const warmCheckbox = document.getElementById("warmCheck");
+
+    let checkValue;
+
+    if (coldCheckbox.checked) checkValue = "Холодное";
+    if (warmCheckbox.checked) checkValue = "Теплое";
+
     const formData = new FormData();
     formData.append("user_name", name);
     formData.append("user_phone", phone);
+    formData.append("balcon choice", baChoice.alt);
+    formData.append("width", widthInput);
+    formData.append("height", heightInput);
+    formData.append("view_type", viewTypeSelect);
+    formData.append("profile type", checkValue);
 
     // Display a message to the user indicating that the form is being submitted
     const message = document.createElement("div");
