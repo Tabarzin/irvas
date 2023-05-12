@@ -1,4 +1,4 @@
-const timeInSeconds = 5;
+const timeInSeconds = 60;
 const timeInMilliseconds = timeInSeconds * 1000;
 
 const popupWindow = document.querySelector(".popup");

@@ -25,6 +25,7 @@ document.addEventListener("submit", function (event) {
     const formData = new FormData();
     formData.append("user_name", name);
     formData.append("user_phone", phone);
+
     formData.append("balcon choice", baChoice.alt);
     formData.append("width", widthInput);
     formData.append("height", heightInput);
