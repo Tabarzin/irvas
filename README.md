@@ -2,6 +2,8 @@
 
 https://docs.google.com/document/d/1lRYlblSIz7fPdWEChsItL8jdS3ltTR6K-FxB2rHVHBY/edit
 
+Деплой: https://irvas-indows.netlify.app/
+
 ### Что я сделал:
 
 - Реализовал вызов и удаление модального окна (класс popup_engineer)
