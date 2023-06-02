@@ -20,7 +20,6 @@ const button = document.querySelector(".popup_calc_button");
 const modalToClose = document.querySelector(".popup_calc");
 const calcProfile = document.querySelector(".popup_calc_profile");
 const calcProfileClose = document.querySelector(".popup_calc_profile_close");
-const checkboxes = document.querySelectorAll('input[name="checkbox-test"]');
 const secondButton = document.querySelector(".popup_calc_profile_button");
 const secondModalToClose = document.querySelector(".popup_calc_profile");
 const calcEnd = document.querySelector(".popup_calc_end ");
@@ -86,20 +85,6 @@ button.addEventListener("click", () => {
 calcProfileClose.addEventListener("click", () => {
   calcProfile.style.display = "none";
 });
-
-/* Калькулятор. Запрет за выбор двух чекбоксов */
-
-for (let i = 0; i < checkboxes.length; i++) {
-  checkboxes[i].addEventListener("change", () => {
-    if (checkboxes[i].checked) {
-      for (let j = 0; j < checkboxes.length; j++) {
-        if (j !== i) {
-          checkboxes[j].checked = false;
-        }
-      }
-    }
-  });
-}
 
 /* Калькулятор. При нажатии на вторую кнопку "далее" */
 
