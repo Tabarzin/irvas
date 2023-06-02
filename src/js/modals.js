@@ -1,35 +1,59 @@
 /* Вызов замерщика */
 
-const measurerModal = document.getElementsByClassName("popup_engineer")[0];
+// const measurerModal = document.getElementsByClassName("popup_engineer")[0];
+
+const measurerModal = document.querySelector(".popup_engineer");
 const measurerBtn = document.getElementById("callMeasurer");
 const span = document.getElementById("popup_close");
 
-measurerBtn.onclick = function () {
+measurerBtn.addEventListener("click", () => {
   measurerModal.style.display = "block";
-};
+});
 
-span.onclick = function () {
+span.addEventListener("click", () => {
   measurerModal.style.display = "none";
-};
+});
+
+// measurerBtn.onclick = function () {
+//   measurerModal.style.display = "block";
+// };
+
+// span.onclick = function () {
+//   measurerModal.style.display = "none";
+// };
 
 /* “Заказать обратный звонок” и “Спросите у нашего специалиста” */
 
-const callOrAskModal = document.getElementsByClassName("popup")[0];
-const callOrAskBtn1 = document.getElementsByClassName("phone_link")[0];
-const callOrAskBtn2 = document.getElementsByClassName("phone_link")[1];
-const closeCallOrAsk = document.getElementById("closeCallOrAsk");
+//const callModal = document.getElementsByClassName("popup")[0];
+const callModal = document.querySelector(".popup");
 
-callOrAskBtn1.onclick = function () {
-  callOrAskModal.style.display = "block";
-};
+// const callOrAskBtn1 = document.getElementsByClassName("phone_link")[0];
+// const callOrAskBtn2 = document.getElementsByClassName("phone_link")[1];
+const callModalBtns = document.querySelectorAll(".phone_link");
 
-callOrAskBtn2.onclick = function () {
-  callOrAskModal.style.display = "block";
-};
+const closeCallModal = document.getElementById("closeCallOrAsk");
 
-closeCallOrAsk.onclick = function () {
-  callOrAskModal.style.display = "none";
-};
+callModalBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    callModal.style.display = "block";
+  });
+});
+
+// callOrAskBtn1.onclick = function () {
+//   callModal.style.display = "block";
+// };
+
+// callOrAskBtn2.onclick = function () {
+//   callModal.style.display = "block";
+// };
+
+// closeCallModal.onclick = function () {
+//   callModal.style.display = "none";
+// };
+
+closeCallModal.addEventListener("click", () => {
+  callModal.style.display = "none";
+});
 
 /* Калькулятор */
 
@@ -121,8 +145,8 @@ calcEndClose.addEventListener("click", () => {
 window.onclick = function (event) {
   if (event.target == measurerModal) {
     measurerModal.style.display = "none";
-  } else if (event.target == callOrAskModal) {
-    callOrAskModal.style.display = "none";
+  } else if (event.target == callModal) {
+    callModal.style.display = "none";
   } else if (event.target == calcModal) {
     calcModal.style.display = "none";
   } else if (event.target == calcProfile) {
