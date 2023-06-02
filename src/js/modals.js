@@ -48,17 +48,16 @@ closeCalcModals.forEach((close) => {
 
 /* Калькулятор. Выбор иконок в модальном окне */
 
-const icons = document.querySelectorAll(".balcon_icons_img");
+const iconsContainer = document.querySelector(".balcon_icons");
 const bigImgs = document.querySelectorAll(".big_img img");
 
-icons.forEach((icon, index) => {
-  icon.addEventListener("click", () => {
-    // hide all big images
-    bigImgs.forEach((img) => {
-      img.style.display = "none";
-    });
-    // display the corresponding big image
-    bigImgs[index].style.display = "block";
+iconsContainer.addEventListener("click", (event) => {
+  bigImgs.forEach((img) => {
+    img.style.display = "none";
+
+    if (event.target.alt == img.alt) {
+      img.style.display = "block";
+    }
   });
 });
 
