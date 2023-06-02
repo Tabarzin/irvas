@@ -1,7 +1,5 @@
 /* Вызов замерщика */
 
-// const measurerModal = document.getElementsByClassName("popup_engineer")[0];
-
 const measurerModal = document.querySelector(".popup_engineer");
 const measurerBtn = document.getElementById("callMeasurer");
 const span = document.getElementById("popup_close");
@@ -14,23 +12,10 @@ span.addEventListener("click", () => {
   measurerModal.style.display = "none";
 });
 
-// measurerBtn.onclick = function () {
-//   measurerModal.style.display = "block";
-// };
-
-// span.onclick = function () {
-//   measurerModal.style.display = "none";
-// };
-
 /* “Заказать обратный звонок” и “Спросите у нашего специалиста” */
 
-//const callModal = document.getElementsByClassName("popup")[0];
 const callModal = document.querySelector(".popup");
-
-// const callOrAskBtn1 = document.getElementsByClassName("phone_link")[0];
-// const callOrAskBtn2 = document.getElementsByClassName("phone_link")[1];
 const callModalBtns = document.querySelectorAll(".phone_link");
-
 const closeCallModal = document.getElementById("closeCallOrAsk");
 
 callModalBtns.forEach((btn) => {
@@ -38,18 +23,6 @@ callModalBtns.forEach((btn) => {
     callModal.style.display = "block";
   });
 });
-
-// callOrAskBtn1.onclick = function () {
-//   callModal.style.display = "block";
-// };
-
-// callOrAskBtn2.onclick = function () {
-//   callModal.style.display = "block";
-// };
-
-// closeCallModal.onclick = function () {
-//   callModal.style.display = "none";
-// };
 
 closeCallModal.addEventListener("click", () => {
   callModal.style.display = "none";
@@ -94,9 +67,8 @@ icons.forEach((icon, index) => {
 const button = document.querySelector(".popup_calc_button");
 const modalToClose = document.querySelector(".popup_calc");
 const calcProfile = document.querySelector(".popup_calc_profile");
-// Add a click event listener to the button
+
 button.addEventListener("click", () => {
-  // Get the current modal window element
   modalToClose.style.display = "none";
 
   // Show the next modal window
@@ -128,7 +100,7 @@ for (let i = 0; i < checkboxes.length; i++) {
 const secondButton = document.querySelector(".popup_calc_profile_button");
 const secondModalToClose = document.querySelector(".popup_calc_profile");
 const calcEnd = document.querySelector(".popup_calc_end ");
-// Add a click event listener to the button
+
 secondButton.addEventListener("click", () => {
   // Get the current modal window element
   secondModalToClose.style.display = "none";
