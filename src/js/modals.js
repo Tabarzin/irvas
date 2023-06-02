@@ -101,15 +101,23 @@ calcEndClose.addEventListener("click", () => {
 });
 
 window.onclick = function (event) {
-  if (event.target == measurerModal) {
-    measurerModal.style.display = "none";
-  } else if (event.target == callModal) {
-    callModal.style.display = "none";
-  } else if (event.target == calcModal) {
-    calcModal.style.display = "none";
-  } else if (event.target == calcProfile) {
-    calcProfile.style.display = "none";
-  } else if (event.target == calcEnd) {
-    calcEnd.style.display = "none";
+  switch (event.target) {
+    case measurerModal:
+      measurerModal.style.display = "none";
+      break;
+    case callModal:
+      callModal.style.display = "none";
+      break;
+    case calcModal:
+      calcModal.style.display = "none";
+      break;
+    case calcProfile:
+      calcProfile.style.display = "none";
+      break;
+    case calcEnd:
+      calcEnd.style.display = "none";
+      break;
+    default:
+      break;
   }
 };
