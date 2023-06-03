@@ -25,27 +25,29 @@ const secondModalToClose = document.querySelector(".popup_calc_profile");
 const calcEnd = document.querySelector(".popup_calc_end ");
 const calcEndClose = document.querySelector(".popup_calc_end_close");
 
-/* Вызов замерщика */
+const handleClick = (event) => {
+  const target = event.target;
 
-measurerBtn.addEventListener("click", () => {
-  measurerModal.style.display = "block";
-});
+  if (target === measurerBtn) {
+    measurerModal.style.display = "block"; // Вызов замерщика
+  } else if (target === span) {
+    measurerModal.style.display = "none";
+  } else {
+    for (const btn of callModalBtns) {
+      // “Заказать обратный звонок” и “Спросите у нашего специалиста”
+      if (target === btn) {
+        callModal.style.display = "block";
+        break;
+      }
+    }
+  }
 
-span.addEventListener("click", () => {
-  measurerModal.style.display = "none";
-});
+  if (target === closeCallModal) {
+    callModal.style.display = "none";
+  }
+};
 
-/* “Заказать обратный звонок” и “Спросите у нашего специалиста” */
-
-callModalBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    callModal.style.display = "block";
-  });
-});
-
-closeCallModal.addEventListener("click", () => {
-  callModal.style.display = "none";
-});
+document.addEventListener("click", handleClick);
 
 /* Калькулятор */
 
