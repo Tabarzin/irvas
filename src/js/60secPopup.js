@@ -1,9 +1,8 @@
 const timeInSeconds = 60;
 const timeInMilliseconds = timeInSeconds * 1000;
-
 const popupWindow = document.querySelector(".popup");
+
 function openModal() {
-  // Code to open the modal window
   popupWindow.style.display = "block";
 }
 
