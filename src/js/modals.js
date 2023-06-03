@@ -16,11 +16,13 @@ const calcModal = document.querySelector(".popup_calc");
 const closeCalcModals = document.querySelectorAll(".popup_calc_close");
 const iconsContainer = document.querySelector(".balcon_icons");
 const bigImgs = document.querySelectorAll(".big_img img");
-const button = document.querySelector(".popup_calc_button");
+const popupCalcButton = document.querySelector(".popup_calc_button");
 const modalToClose = document.querySelector(".popup_calc");
 const calcProfile = document.querySelector(".popup_calc_profile");
 const calcProfileClose = document.querySelector(".popup_calc_profile_close");
-const secondButton = document.querySelector(".popup_calc_profile_button");
+const secondPopupCalcButton = document.querySelector(
+  ".popup_calc_profile_button"
+);
 const secondModalToClose = document.querySelector(".popup_calc_profile");
 const calcEnd = document.querySelector(".popup_calc_end ");
 const calcEndClose = document.querySelector(".popup_calc_end_close");
@@ -44,6 +46,19 @@ const handleClick = (event) => {
 
   if (target === closeCallModal) {
     callModal.style.display = "none";
+  }
+
+  /* Калькулятор. При нажатии на кнопки "далее" */
+  if (target === popupCalcButton) {
+    modalToClose.style.display = "none";
+    calcProfile.style.display = "block";
+  } else if (target === calcProfileClose) {
+    calcProfile.style.display = "none";
+  } else if (target === secondPopupCalcButton) {
+    secondModalToClose.style.display = "none";
+    calcEnd.style.display = "block";
+  } else if (target === calcEndClose) {
+    calcEnd.style.display = "none";
   }
 };
 
@@ -77,30 +92,48 @@ iconsContainer.addEventListener("click", (event) => {
 
 /* Калькулятор. При нажатии на кнопку "далее" */
 
-button.addEventListener("click", () => {
-  modalToClose.style.display = "none";
+// button.addEventListener("click", () => {
+//   modalToClose.style.display = "none";
 
-  // Show the next modal window
-  calcProfile.style.display = "block";
-});
+//   // Show the next modal window
+//   calcProfile.style.display = "block";
+// });
 
-calcProfileClose.addEventListener("click", () => {
-  calcProfile.style.display = "none";
-});
+// calcProfileClose.addEventListener("click", () => {
+//   calcProfile.style.display = "none";
+// });
 
-/* Калькулятор. При нажатии на вторую кнопку "далее" */
+// /* Калькулятор. При нажатии на вторую кнопку "далее" */
 
-secondButton.addEventListener("click", () => {
-  // Get the current modal window element
-  secondModalToClose.style.display = "none";
+// secondButton.addEventListener("click", () => {
+//   // Get the current modal window element
+//   secondModalToClose.style.display = "none";
 
-  // Show the next modal window
-  calcEnd.style.display = "block";
-});
+//   // Show the next modal window
+//   calcEnd.style.display = "block";
+// });
 
-calcEndClose.addEventListener("click", () => {
-  calcEnd.style.display = "none";
-});
+// calcEndClose.addEventListener("click", () => {
+//   calcEnd.style.display = "none";
+// });
+
+// const handleCalcBtns = (event) => {
+//   const target = event.target;
+
+//   if (target === button) {
+//     modalToClose.style.display = "none";
+//     calcProfile.style.display = "block";
+//   } else if (target === calcProfileClose) {
+//     calcProfile.style.display = "none";
+//   } else if (target === secondButton) {
+//     secondModalToClose.style.display = "none";
+//     calcEnd.style.display = "block";
+//   } else if (target === calcEndClose) {
+//     calcEnd.style.display = "none";
+//   }
+// };
+
+// document.addEventListener("click", handleCalcBtns);
 
 window.onclick = function (event) {
   switch (event.target) {
