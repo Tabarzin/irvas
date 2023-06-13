@@ -23,14 +23,61 @@ document.addEventListener("submit", function (event) {
     if (warmCheckbox.checked) checkValue = "Теплое";
 
     const formData = new FormData();
+    // formData.append("user_name", name);
+    // formData.append("user_phone", phone);
+
+    // formData.append("balcon choice", baChoice.alt);
+    // formData.append("width", widthInput);
+    // formData.append("height", heightInput);
+    // formData.append("view_type", viewTypeSelect);
+    // formData.append("profile type", checkValue);
+
     formData.append("user_name", name);
     formData.append("user_phone", phone);
 
-    formData.append("balcon choice", baChoice.alt);
-    formData.append("width", widthInput);
-    formData.append("height", heightInput);
-    formData.append("view_type", viewTypeSelect);
-    formData.append("profile type", checkValue);
+    if (baChoice.alt) {
+      formData.append("balcon choice", baChoice.alt);
+    }
+
+    if (widthInput) {
+      formData.append("width", widthInput);
+    }
+
+    if (heightInput) {
+      formData.append("height", heightInput);
+    }
+
+    if (viewTypeSelect) {
+      formData.append("view_type", viewTypeSelect);
+    }
+
+    if (checkValue) {
+      formData.append("profile type", checkValue);
+    }
+
+    const objectFromForm = Object.fromEntries(formData.entries());
+    const json = JSON.stringify(objectFromForm);
+
+    const postData = async (url, data) => {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: data,
+      });
+
+      return await res.json();
+    };
+
+    postData("http://localhost:3000/formSubmissions", json)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(() => {})
+      .finally(() => {
+        form.reset();
+      });
 
     // Display a message to the user indicating that the form is being submitted
     const message = document.createElement("div");
@@ -45,26 +92,14 @@ document.addEventListener("submit", function (event) {
     }
 
     // Mock sending the form data to the server
-    setTimeout(function () {
-      message.remove();
-      // Update the message to indicate whether the submission was successful or not
-      if (Math.random() < 0.5) {
-        alert("Данные успешно отправлены!");
-      } else {
-        alert("Ошибка! Пожалуйста, попытайтесь еще раз.");
-      }
-    }, 2000);
+    //   setTimeout(function () {
+    //     message.remove();
+    //     // Update the message to indicate whether the submission was successful or not
+    //     if (Math.random() < 0.5) {
+    //       alert("Данные успешно отправлены!");
+    //     } else {
+    //       alert("Ошибка! Пожалуйста, попытайтесь еще раз.");
+    //     }
+    //   }, 2000);
   }
-
-  // const xhr = new XMLHttpRequest();
-  //   xhr.open("POST", "/submit-form.php");
-  //   xhr.addEventListener("load", function() {
-  //     // Update the message to indicate whether the submission was successful or not
-  //     if (xhr.status === 200) {
-  //       message.textContent = "Form data sent successfully!";
-  //     } else {
-  //       message.textContent = "Error sending form data. Please try again later.";
-  //     }
-  //   });
-  //   xhr.send(formData);
 });
